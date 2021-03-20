@@ -1,0 +1,89 @@
+swagger: "2.0"
+info:
+  title: "Swagger Crud"
+  version: "1.0.0"
+
+host: "{{host_with_port}}"
+
+schemes:
+  - "https"
+  - "http"
+paths:
+  /ping:
+    get:
+      tags:
+        - "configuracoes"
+      summary: "Ping"
+      operationId: "ping"
+      produces:
+        - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "pong response"
+      x-swagger-router-controller: "server.controllers.ping"
+  /usuario:
+    post:
+      tags:
+        - "usuario"
+      summary: "Endpoint para adicionar usuario"
+      operationId: "post_usuario"
+      x-swagger-router-controller: "server.controllers.users_controller"
+      produces:
+        - "application/json"
+      consumes:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: True
+          schema:
+            $ref: "#/definitions/UsuarioInput"
+      responses:
+        200:
+          description: "Retorna o usuario inserido"
+    get:
+      tags:
+        - "usuario"
+      summary: "Endpoint para retornar todos usuarios"
+      operationId: "get_usuarios"
+      x-swagger-router-controller: "server.controllers.users_controller"
+      produces:
+        - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Retorna todos os usuários"
+
+
+  /usuario/{id}:
+    delete:
+      tags:
+        - "usuario"
+      summary: "Endpoint para deletar usuario por id"
+      operationId: "delete_usuario"
+      x-swagger-router-controller: "server.controllers.users_controller"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: True
+          type: integer
+      responses:
+        200:
+          description: "Deleta usuario por id"
+
+
+
+
+definitions:
+  UsuarioInput:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      nm_usuario:
+        type: "string"
+      email_usuario:
+        type: "string"
