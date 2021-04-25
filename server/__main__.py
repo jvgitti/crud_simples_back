@@ -1,11 +1,9 @@
-from server import init_api
+from server import init_api, HOST, PORT
 
-
-HOST = "localhost"
 
 def main():
     app = init_api()
-    app.run(host="localhost", port=8080, debug=False)
+    app.run(host=HOST, port=PORT)
 
 
 if __name__ == "__main__":
