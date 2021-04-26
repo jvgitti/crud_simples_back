@@ -1,6 +1,7 @@
 from logging.config import fileConfig
 
 from sqlalchemy import create_engine
+from server.config import DB_HOST, DB_NAME, DB_USER, DB_PASSWORD
 from sqlalchemy import pool
 
 from alembic import context
@@ -29,7 +30,7 @@ target_metadata = db.metadata
 # ... etc.
 
 def get_url():
-    return "postgresql://postgres:12321abcba@localhost/db_teste"
+    return f"postgresql://wlwakalhkulymy:1a4a83f8c1ae6460203a58cfe889f48735aa58e03456a49d1d05139a5468a492@ec2-34-225-167-77.compute-1.amazonaws.com/dfuqbvu8vhs8f1"
 
 def run_migrations_offline():
     """Run migrations in 'offline' mode.
