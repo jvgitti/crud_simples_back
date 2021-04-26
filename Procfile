@@ -1,2 +1,1 @@
-release: alembic upgrade head
-worker: python -m server
+web: python -m server runserver --host 0.0.0.0 --port 8080
