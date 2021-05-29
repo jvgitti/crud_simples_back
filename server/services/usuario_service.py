@@ -5,7 +5,7 @@ from server import db
 def adiciona_usuario(body):
     usuario = Usuario()
     usuario.nm_usuario = body['nm_usuario']
-    usuario.email_usuario = body['email_usuario']
+    usuario.senha_usuario = body['senha_usuario']
     try:
         db.session.add(usuario)
         db.session.commit()

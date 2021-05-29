@@ -7,12 +7,12 @@ class Usuario(db.Model):
 
     id = Column(BigInteger, primary_key=True, autoincrement=True)
     nm_usuario = Column(String)
-    email_usuario = Column(String)
+    senha_usuario = Column(String)
 
 class UsuarioSchema(ma.ModelSchema):
     class Meta:
         fields = (
             "id",
             "nm_usuario",
-            "email_usuario"
+            "senha_usuario"
         )

@@ -85,5 +85,5 @@ definitions:
         type: "integer"
       nm_usuario:
         type: "string"
-      email_usuario:
+      senha_usuario:
         type: "string"
